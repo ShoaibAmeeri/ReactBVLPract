@@ -1,9 +1,28 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Nav from './cmponents/Nav'
+import Home from './cmponents/Home'
+import About from './cmponents/About'
+import Contact from './cmponents/About'
 
 function App() {
+
+  const Router = createBrowserRouter([
+    {
+      path:"/",
+      element:<> <Nav/> <Home/></>
+    },
+    {
+      path:"/about",
+      element:<><Nav /> <About /></> 
+    },
+    {
+      path:"/contact",
+      element:<> <Nav /> <Contact/></>
+    },
+  ])
+
 
  let [count, setCount] = useState(5)
 
@@ -20,6 +39,8 @@ function App() {
 
   return (
     <>
+<Nav  />
+<RouterProvider router={Router} />  
       <h1>Counter-- {count}</h1>
       <button onClick={incre}>Add value</button>
       <button onClick={decre}>Remove value</button>

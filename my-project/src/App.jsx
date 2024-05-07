@@ -1,37 +1,33 @@
-import { useCallback } from "react"
-import { useState } from "react"
+import React, { useState } from 'react'
+import './App.css'
+import Navbar from './assets/Components/Navbar'
+import Carousel from './assets/Components/Carousel'
+import CardsSec1 from './assets/Components/CardsSec1'
+import CardsSec2 from './assets/Components/CardsSec2'
+import CardsSec3 from './assets/Components/CardsSec3'
+import Counter from './assets/Components/Counter'
 
 export default function App() {
-
-  let [length, setLength] = useState(8)
-  let [numAllowed, setNumAllowed] = useState(false) 
-  let [charAllowed, setCharAllowed] = useState(false) 
-  let [Password, setPassword] =useState()
-
-  let passGenrator = useCallback(()=>{
-
-    let pass = ""
-    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-    
-    if(numAllowed) str+="0123456789"
-    if(charAllowed) str += "!@#$%^&*()-_=+[]{}|;:',.<>?/"
-
-    for (let i = 1; i <= array.length; i++) {
-      let char = Math.floor(Math.random() * str.length + 1)
-      pass = str.charAt(char)
-    }
-
-
-  },[length,numAllowed,charAllowed,setPassword])
-
-
+  let [count, setCount] = useState(10)
+  let incre = ()=>{
+    setCount(++count)
+    console.log(count)
+  }
   return (
     <>
-      <div className="w-full  ">
+      <header>
+       <Navbar count={count}  />
+      </header>
 
-      </div>
+      <main>
+        <Carousel />
+    <button onClick={incre}>hhh</button>
+        <CardsSec1 />
+        <CardsSec2 />
+        <CardsSec3  count={count} increment={incre} />
+        <Counter />
 
-
+      </main>
     </>
   )
 }

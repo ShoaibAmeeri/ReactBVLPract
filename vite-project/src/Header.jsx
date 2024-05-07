@@ -4,7 +4,7 @@ function Header(props) {
   return (
     <header>
     <ul>
-      <li>{props.first}</li>
+      <li>Home</li>
       <li>About</li>
       <li>Contact</li>
       <li>Policy</li>
