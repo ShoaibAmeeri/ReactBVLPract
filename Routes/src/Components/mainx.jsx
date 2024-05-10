@@ -8,7 +8,7 @@ Link
 
 function Main() {
   return (
-  <BrowserRouter>
+  // <BrowserRouter>
     
     <Routes>
             <Route path='/' element={<Home/>} />
@@ -17,7 +17,7 @@ function Main() {
       </Routes>
 
    
-  </BrowserRouter>
+  // </BrowserRouter>
   )
 }
 
